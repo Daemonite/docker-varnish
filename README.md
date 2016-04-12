@@ -2,7 +2,7 @@
 
 ## Supported tags and respective `Dockerfile` links
 
--	[`4.1.0`, `4.1`, `4`, `latest` (*4.1.0/Dockerfile*)](https://github.com/newsdev/docker-varnish/blob/4/Dockerfile)
+-	[`4.1.0`, `4.1`, `4`, `latest` (*4.1.0/Dockerfile*)](https://github.com/daemonite/docker-varnish/blob/4/Dockerfile)
 
 ## What is Varnish?
 
@@ -17,7 +17,7 @@ This image is intended as a base image for other images to built on.
 ### Create a `Dockerfile` in your Varnish project
 
 ```dockerfile
-FROM newsdev/varnish:4.1.0
+FROM daemonite/varnish:4.1.0
 ```
 
 ### Create a `default.vcl` in your Varnish project
@@ -43,7 +43,7 @@ $ docker run -it --rm --name my-running-varnish my-varnish
 You can override the port Varnish serves in your Dockerfile.
 
 ```dockerfile
-FROM newsdev/varnish:4.1.0
+FROM daemonite/varnish:4.1.0
 
 ENV VARNISH_PORT 8080
 EXPOSE 8080
@@ -52,10 +52,18 @@ EXPOSE 8080
 You can override the size of the cache.
 
 ```dockerfile
-FROM newsdev/varnish:4.1.0
+FROM daemonite/varnish:4.1.0
 
 ENV VARNISH_MEMORY 1G
 ```
+
+You can add multiple VCL files to your image, and specify which one should be used
+using an environment variable when you bring the container up:
+
+```dockerfile
+FROM daemonite/varnish:4.1.0
+
+ENV VARNISH_VCL site_a
 
 ## How to install VMODs (Varnish Modules)
 
@@ -66,7 +74,7 @@ To install Varnish Modules, you will need the Varnish source to compile against.
 Install VMODs in your Varnish project's Dockerfile. For example, to install the Querystring module:
 
 ```dockerfile
-FROM newsdev/varnish:4.1.0
+FROM daemonite/varnish:4.1.0
 
 # Install Querystring Varnish module
 ENV QUERYSTRING_VERSION=0.3
@@ -95,7 +103,7 @@ Please see [the Docker installation documentation](https://docs.docker.com/insta
 
 ## Issues
 
-If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/newsdev/docker-varnish/issues).
+If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/daemonite/docker-varnish/issues).
 
 ## Contributing
 
