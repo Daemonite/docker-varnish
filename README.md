@@ -64,6 +64,7 @@ using an environment variable when you bring the container up:
 FROM daemonite/varnish:4.1.0
 
 ENV VARNISH_VCL site_a
+```
 
 ## How to install VMODs (Varnish Modules)
 
